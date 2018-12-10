@@ -5,7 +5,7 @@ Airport Collaborative Decision Making System
 
 - Clone the project into a web directory
 - Update the .env
-- Run 'composer install'
+- Run <code>composer install</code>
 
 ### Prerequisites
 
