@@ -40,7 +40,7 @@ You need to have the following installed:
 - Go back into your Windows machine and navigate into your hosts file in C:\Windows\System32\drivers\etc (You must have admin privileges to edit this file)
 - Import the following into your C:\Windows\System32\drivers\etc\hosts file - 192.168.10.10 acdm.dashboard
 ### Forward the local domain for the VM [Mac/Linux]
-- Go back into your Windows machine and navigate into /etc/hosts (You must have admin privileges to edit this file)
+- Go back into your Mac machine and navigate into /etc/hosts (You must have admin privileges to edit this file)
 - Import the following into your /etc/hosts - 192.168.10.10 acdm.dashboard
 ### Run the project
 - Navigate to http://acdm.dashboard on your main machine
