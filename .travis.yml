@@ -1,21 +1,26 @@
-language: php
-
-php:
-  - 7.1
-  - 7.2
-
-services:
-  - mysql
-
-before_script:
-  - cp .env.travis .env
-  - mysql -u root -e 'create database lhr-acdm;'
-  - composer self-update
-  - composer install --dev --prefer-source --no-interaction
-  - php artisan vendor:publish --tag=laravelroles
-  - php artisan vendor:publish --tag=laravel2step
-  - php artisan key:generate
-  - php artisan migrate:install --env=testing --no-interaction
-  - composer dump-autoload
-  - sudo chgrp -R www-data storage bootstrap/cache
-- sudo chmod -R ug+rwx storage bootstrap/cache
+jobs:
+  include:
+  - stage: "Test"
+    language: php
+    php:
+    - 7.2
+    addons:
+      mariadb: '10.2'
+    before_install:
+    - sudo apt-get update
+    - sudo apt-get install -y nasm
+    - mysql -e 'create database IF NOT EXISTS lhr-admin;' -uroot
+    - composer install --prefer-dist --no-interaction --optimize-autoloader --no-suggest
+    - nvm install node
+    - npm -v
+    - yarn -v
+    - yarn install
+    install:
+    - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+    - chmod +x ./cc-test-reporter
+    - cp .env.example .env
+    - php artisan key:generate
+    - php artisan migrate -vvv -n
+    - yarn run prod
+    - php artisan route:cache
+    
