@@ -13,8 +13,5 @@ before_script:
 before_install:
   - mysql -e 'CREATE DATABASE lhr_acdm_testing;'
 
-script:
-  - phpunit
-
 services:
   - mysql
