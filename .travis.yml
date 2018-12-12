@@ -9,7 +9,7 @@ services:
 
 before_script:
   - cp .env.travis .env
-  - mysql -u root -e 'create database laravelAuth;'
+  - mysql -u root -e 'create database lhr-acdm;'
   - composer self-update
   - composer install --dev --prefer-source --no-interaction
   - php artisan vendor:publish --tag=laravelroles
