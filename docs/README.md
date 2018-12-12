@@ -16,7 +16,6 @@ You need to have the following installed:
 - Composer
 - NPM (optional)
 
-
 ## Getting Started [With Vagrant]
 
 ### Initialise the project
