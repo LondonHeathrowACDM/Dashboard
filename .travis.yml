@@ -13,5 +13,8 @@ before_script:
 before_install:
   - mysql -e 'CREATE DATABASE lhr_acdm_testing;'
 
+script:
+- vendor/bin/phpunit
+
 services:
   - mysql
