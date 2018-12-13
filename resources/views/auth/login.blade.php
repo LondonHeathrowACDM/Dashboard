@@ -4,8 +4,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>ACDM Login</title>
-    <link rel="apple-touch-icon" href="{{ asset('acdm_assets/img/apple-touch-icon-120x120.png') }}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('acdm_assets/img/favicon.ico') }}">
+    <link rel="apple-touch-icon" href="{{ asset('img/apple-touch-icon-120x120.png') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('img/favicon.ico') }}">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Quicksand:300,400,500,700"
           rel="stylesheet">
     <link href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css') }}"
@@ -41,7 +41,7 @@
                             <div class="card-header border-0">
                                 <div class="card-title text-center">
                                     <div class="p-1">
-                                        <img src=" {{asset('acdm_assets/img/Artboard7.svg')}} " alt="branding logo"  style="width:75%">
+                                        <img src=" {{asset('img/LHR-ACDM.png')}} " alt="branding logo"  style="width:75%">
                                     </div>
                                 </div>
                                 <h6 class="card-subtitle line-on-side text-muted text-center font-small-3 pt-2">
