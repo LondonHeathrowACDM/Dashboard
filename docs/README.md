@@ -1,6 +1,26 @@
-# Dashboard
-Airport Collaborative Decision Making System
+[build_status]: https://api.travis-ci.org/LondonHeathrowACDM/Dashboard.svg?branch=master
 
+<p align="center">
+    <a href="https://acdm.hthrw.uk"><img src="https://acdm.hthrw.uk/img/LHR-ACDM.png" width="55%" /></a>
+</p>
+
+# About
+An airport collaborative decision making system for London Heathrow Airport (EGLL), designed specifically to be used alongside VATSIM. This provides the user with a dashboard similar to one used at Heathrow in real life - increasing realism and making planning an ease on the network. 
+
+# Status
+
+|      Scan       |                            Service                            |              Status             |
+|-----------------|---------------------------------------------------------------|---------------------------------|
+| Build           | [TravisCI](https://travis-ci.org/LondonHeathrowACDM/Dashboard)| ![build_status]                 |
+
+# Issue Tracking
+- Report any found issues to JIRA at [LHR-ACDM](https://barlwuk.atlassian.net/secure/RapidBoard.jspa?projectKey=ACDM). 
+- Note: In order to track/report an issue you will need an account, you can register through the Google OAuth implementation or register directly with Atlassian.
+
+# Current Version
+- v1.0.0 (12/2018)
+
+# Installation Guide
 ## Getting Started [Without Vagrant]
 
 - Clone the project into a web directory
