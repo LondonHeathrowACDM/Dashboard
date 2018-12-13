@@ -11,7 +11,7 @@ An airport collaborative decision making system for London Heathrow Airport (EGL
 
 |      Scan       |                            Service                            |              Status             |
 |-----------------|---------------------------------------------------------------|---------------------------------|
-| Build           | [TravisCI](https://travis-ci.com/LondonHeathrowACDM/Dashboard)| ![build_status]                 |
+| Build           | [TravisCI](https://travis-ci.org/LondonHeathrowACDM/Dashboard)| ![build_status]                 |
 
 # Issue Tracking
 - Report any found issues to JIRA at [LHR-ACDM](https://barlwuk.atlassian.net/secure/RapidBoard.jspa?projectKey=ACDM). 
