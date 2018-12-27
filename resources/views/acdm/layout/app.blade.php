@@ -12,22 +12,24 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('img/favicon.ico') }}">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Quicksand:300,400,500,700"
           rel="stylesheet">
-    <link href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css"
+    <link href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css") }}"
           rel="stylesheet">
     <!-- BEGIN VENDOR CSS-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('acdm_assets/css/app/app.css') }}">
-
-    <link rel="stylesheet" type="text/css" href="{{ asset('acdm_assets/css/app/vendors.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('acdm_assets/vendors/css/icheck.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('acdm_assets/vendors/css/custom.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset("acdm_assets/css/vendors.css") }}">
+    <!-- END VENDOR CSS-->
+    <!-- BEGIN MODERN CSS-->
+    <link rel="stylesheet" type="text/css" href="{{ asset("acdm_assets/css/app.css") }}">
     <!-- END MODERN CSS-->
     <!-- BEGIN Page Level CSS-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('acdm_assets/css/app/vertical-menu.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('acdm_assets/css/app/palette-gradient.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('acdm_assets/css/app/login-register.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset("acdm_assets/css/core/menu/menu-types/vertical-overlay-menu.css") }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset("acdm_assets/css/core/colors/palette-gradient.css") }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset("acdm_assets/vendors/css/charts/jquery-jvectormap-2.0.3.css") }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset("acdm_assets/vendors/css/charts/morris.css") }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset("acdm_assets/fonts/simple-line-icons/style.css") }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset("acdm_assets/css/core/colors/palette-gradient.css") }}">
     <!-- END Page Level CSS-->
     <!-- BEGIN Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('acdm_assets/css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset("acdm_assets/css/style.css") }}">
     <!-- END Custom CSS-->
     @yield('styles')
 
@@ -41,7 +43,7 @@
             <ul class="nav navbar-nav flex-row">
                 <li class="nav-item mobile-menu d-md-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu font-large-1"></i></a></li>
                 <li class="nav-item">
-                    <a class="navbar-brand" href=" {{ url('') }} " style="padding-top: 11px;">
+                    <a class="navbar-brand" href=" {{ url('') }} ">
                         {{--<img class="brand-logo" alt="modern admin logo" src="{{ asset('app-assets/images/logo/logo.png') }}">--}}
                         <h3 class="brand-text" style="border-right-width: 0px;border-right-style: solid;margin-left: 80px;">London Heathrow (EGLL)</h3>
                         <br>
@@ -185,11 +187,6 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item nav-search"><a class="nav-link nav-link-search" href="#"><i class="ficon ft-search"></i></a>
-                        <div class="search-input">
-                            <input class="input" type="text" placeholder="Explore Modern...">
-                        </div>
-                    </li>
                 </ul>
                 @guest
                     <ul class="nav navbar-nav float-right">
@@ -207,10 +204,24 @@
                         <li class="dropdown dropdown-user nav-item">
                             <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
                     <span class="mr-1">Hello,
-                      <span class="user-name text-bold-700"> {{ Auth::user()->name }} </span>
+                        <span class="user-name text-bold-700"> {{ Auth::user()->name }}
+                      </span>
                     </span>
                                 {{--<span class="avatar avatar-online">--}}
                                 {{--<img src="{{ asset('app-assets/images/portrait/small/avatar-s-19.png') }}" alt="avatar"><i></i></span>--}}
+                            </a>
+                            <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown" style="margin-top: -40px;">
+                    <span class="mr-1">VATSIM callsign:
+                            <span class="user-name text-bold-700">
+                                @foreach($controllers as $key => $data)
+                                <tr class="bg-success bg-lighten-5">
+                                <td>{{$data}}</td>
+                                </tr>
+                                @endforeach
+s                      </span>
+                    </span>
+
+
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 {{--<a class="dropdown-item" href="#"><i class="ft-user"></i> Edit Profile</a>--}}
@@ -586,9 +597,9 @@
                 <span data-i18n="nav.category.pages">Pages</span><i class="la la-ellipsis-h ft-minus" data-toggle="tooltip"
                                                                     data-placement="right" data-original-title="Pages"></i>
             </li>
-            <li class=" nav-item"><a href="email-application.html"><i class="la la-envelope"></i><span class="menu-title" data-i18n="">Email Application</span></a>
+            <li class=" nav-item"><a href="email-application.html"><i class="la la-envelope"></i><span class="menu-title" data-i18n=">Email Application</span></a>
             </li>
-            <li class=" nav-item"><a href="chat-application.html"><i class="la la-comments"></i><span class="menu-title" data-i18n="">Chat Application</span></a>
+            <li class=" nav-item"><a href="chat-application.html"><i class="la la-comments"></i><span class="menu-title" data-i18n=">Chat Application</span></a>
             </li>
             <li class=" nav-item"><a href="#"><i class="la la-briefcase"></i><span class="menu-title" data-i18n="nav.project.main">Project</span></a>
                 <ul class="menu-content">
@@ -1296,30 +1307,37 @@
 
 @yield('content')
 
-<!-- ////////////////////////////////////////////////////////////////////////////-->
-<footer class="footer footer-static footer-light navbar-border navbar-shadow">
-    <p class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2">
-      <span class="float-md-left d-block d-md-inline-block">Copyright &copy; 2018 <a class="text-bold-800 grey darken-2" href="https://themeforest.net/user/pixinvent/portfolio?ref=pixinvent"
-                                                                                     target="_blank">barlw.uk </a>, All rights reserved. </span>
+{{--<!-- ////////////////////////////////////////////////////////////////////////////-->--}}
+{{--<footer class="footer footer-static footer-light navbar-border navbar-shadow">--}}
+    {{--<p class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2">--}}
+      {{--<span class="float-md-left d-block d-md-inline-block">Copyright &copy; 2018 <a class="text-bold-800 grey darken-2" href="https://themeforest.net/user/pixinvent/portfolio?ref=pixinvent"--}}
+                                                                                     {{--target="_blank">barlw.uk </a>, All rights reserved. </span>--}}
         {{--<span class="float-md-right d-block d-md-inline-blockd-none d-lg-block">Hand-crafted & Made with <i class="ft-heart pink"></i></span>--}}
-    </p>
-</footer>
+    {{--</p>--}}
+{{--</footer>--}}
 
 @yield('scripts')
 
-<!-- ////////////////////////////////////////////////////////////////////////////-->
 <!-- BEGIN VENDOR JS-->
-<script src="{{ asset('acdm_assets/css/vendors/js/vendors.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset("acdm_assets/vendors/js/vendors.min.js") }}" type="text/javascript"></script>
 <!-- BEGIN VENDOR JS-->
 <!-- BEGIN PAGE VENDOR JS-->
-<script src="{{ asset('acdm_assets/css/vendors/js/icheck.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset("acdm_assets/vendors/js/charts/chart.min.js") }}" type="text/javascript"></script>
+<script src="{{ asset("acdm_assets/vendors/js/charts/raphael-min.js") }}" type="text/javascript"></script>
+<script src="{{ asset("acdm_assets/vendors/js/charts/morris.min.js") }}" type="text/javascript"></script>
+<script src="{{ asset("acdm_assets/vendors/js/charts/jvector/jquery-jvectormap-2.0.3.min.js") }}"
+        type="text/javascript"></script>
+<script src="{{ asset("acdm_assets/vendors/js/charts/jvector/jquery-jvectormap-world-mill.js") }}"
+        type="text/javascript"></script>
+<script src="{{ asset("acdm_assets/data/jvector/visitor-data.js") }}" type="text/javascript"></script>
 <!-- END PAGE VENDOR JS-->
 <!-- BEGIN MODERN JS-->
-<script src="{{ asset('acdm_assets/js/app-menu.js') }}" type="text/javascript"></script>
-<script src="{{ asset('acdm_assets/js/app.js') }}" type="text/javascript"></script>
+<script src="{{ asset("acdm_assets/js/core/app-menu.js") }}" type="text/javascript"></script>
+<script src="{{ asset("acdm_assets/js/core/app.js") }}" type="text/javascript"></script>
+<script src="{{ asset("acdm_assets/js/scripts/customizer.js") }}" type="text/javascript"></script>
 <!-- END MODERN JS-->
 <!-- BEGIN PAGE LEVEL JS-->
-<script src="{{ asset('acdm_assets/js/form-login-register.js') }}" type="text/javascript"></script>
+<script src="{{ asset("acdm_assets/js/scripts/pages/dashboard-sales.js") }}" type="text/javascript"></script>
 <!-- END PAGE LEVEL JS-->
 </body>
 </html>

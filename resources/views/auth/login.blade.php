@@ -8,22 +8,24 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('img/favicon.ico') }}">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Quicksand:300,400,500,700"
           rel="stylesheet">
-    <link href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css') }}"
+    <link href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css"
           rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('acdm_assets/css/app/app.css') }}">
-
-    <link rel="stylesheet" type="text/css" href="{{ asset('acdm_assets/css/app/vendors.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('acdm_assets/vendors/css/icheck.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('acdm_assets/vendors/css/custom.css') }}">
+    <!-- BEGIN VENDOR CSS-->
+    <link rel="stylesheet" type="text/css" href="{{ asset("acdm_assets/css/vendors.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset("acdm_assets/vendors/css/forms/icheck/icheck.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset("acdm_assets/vendors/css/forms/icheck/custom.css")}}">
+    <!-- END VENDOR CSS-->
+    <!-- BEGIN MODERN CSS-->
+    <link rel="stylesheet" type="text/css" href="{{ asset("acdm_assets/css/app.css")}}">
     <!-- END MODERN CSS-->
     <!-- BEGIN Page Level CSS-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('acdm_assets/css/app/vertical-menu.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('acdm_assets/css/app/palette-gradient.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('acdm_assets/css/app/login-register.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset("acdm_assets/css/core/menu/menu-types/vertical-overlay-menu.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset("acdm_assets/css/core/colors/palette-gradient.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset("acdm_assets/css/pages/login-register.css")}}">
     <!-- END Page Level CSS-->
     <!-- BEGIN Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('acdm_assets/css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset("acdm_assets/css/style.css")}}">
     <!-- END Custom CSS-->
 </head>
 <body class="vertical-layout vertical-menu 1-column  bg-cyan bg-lighten-2 menu-expanded blank-page blank-page"
@@ -82,7 +84,7 @@
                                             </div>
                                             <div class="col-md-6 col-12 float-sm-left text-center text-sm-right"><a href="{{ url('/password/reset') }}" class="card-link">Forgot Password?</a></div>
                                         </div>
-                                        <button type="submit" class="btn btn-outline-danger btn-block"><i class="ft-unlock"></i> Login</button>
+                                        <button type="submit" class="btn btn-outline-purple btn-block"><i class="ft-unlock"></i> Login</button>
                                     </form>
                                 </div>
                                 {{--<p class="card-subtitle line-on-side text-muted text-center font-small-3 mx-2 my-1">--}}
@@ -101,17 +103,19 @@
 </div>
 <!-- ////////////////////////////////////////////////////////////////////////////-->
 <!-- BEGIN VENDOR JS-->
-<script src="{{ asset('acdm_assets/css/vendors/js/vendors.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset("acdm_assets/vendors/js/vendors.min.js")}}" type="text/javascript"></script>
 <!-- BEGIN VENDOR JS-->
 <!-- BEGIN PAGE VENDOR JS-->
-<script src="{{ asset('acdm_assets/css/vendors/js/icheck.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset("acdm_assets/vendors/js/forms/validation/jqBootstrapValidation.js")}}"
+        type="text/javascript"></script>
+<script src="{{ asset("acdm_assets/vendors/js/forms/icheck/icheck.min.js")}}" type="text/javascript"></script>
 <!-- END PAGE VENDOR JS-->
 <!-- BEGIN MODERN JS-->
-<script src="{{ asset('acdm_assets/js/app-menu.js') }}" type="text/javascript"></script>
-<script src="{{ asset('acdm_assets/js/app.js') }}" type="text/javascript"></script>
+<script src="{{ asset("acdm_assets/js/core/app-menu.js")}}" type="text/javascript"></script>
+<script src="{{ asset("acdm_assets/js/core/app.js")}}" type="text/javascript"></script>
 <!-- END MODERN JS-->
 <!-- BEGIN PAGE LEVEL JS-->
-<script src="{{ asset('acdm_assets/js/form-login-register.js') }}" type="text/javascript"></script>
+<script src="{{ asset("acdm_assets/js/scripts/forms/form-login-register.js")}}" type="text/javascript"></script>
 <!-- END PAGE LEVEL JS-->
 </body>
 </html>
