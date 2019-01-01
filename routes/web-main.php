@@ -5,7 +5,9 @@
 
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/', 'System\DashboardController@getDashboard')->name('acdm');
-
+    Route::get('total-deps', function(){
+        return \App\Departures::count();
+    });
 });
 
 Auth::routes();

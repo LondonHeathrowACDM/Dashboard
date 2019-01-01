@@ -23,10 +23,10 @@
         </whitelist>
     </filter>
     <php>
-        <env name="APP_URL" value="http://example.com"/>
+        <env name="APP_URL" value="http://acdm.dashboard"/>
         <env name="CACHE_DRIVER" value="array"/>
         <env name="SESSION_DRIVER" value="array"/>
         <env name="QUEUE_DRIVER" value="sync"/>
-        <env name="DB_DATABASE" value="realworld_test"/>
+        <env name="DB_DATABASE" value="lhr-acdm-testing"/>
     </php>
 </phpunit>

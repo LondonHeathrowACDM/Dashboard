@@ -3,9 +3,11 @@
 
 @section('styles')
 
+
 @stop
 
 @section('content')
+
     <div class="app-content content">
         <div class="content-wrapper">
             <div class="content-header row">
@@ -42,7 +44,7 @@
                                                         <div class="card pull-up">
                                                             <div class="card-content collapse show bg-gradient-directional-danger ">
                                                                 <div class="card-body">
-                                                                    <h4 class="card-title white">Arrivals Runway
+                                                                    <h4 class="card-title white">Arrival Runway
                                                                         <span class="float-right">
                           {{--<span class="white">152</span>--}}
                                                                             {{--<span class="red lighten-4">/200</span>--}}
@@ -84,34 +86,58 @@
                                             <div class="col-12 col-md-6">
                                                 <div class="card">
                                                     <div class="card-header">
-                                                        <h4 class="card-title">EGLL Departures</h4>
+                                                        <h4 class="card-title"><b>EGLL Departures:</b></h4>
                                                         <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                                                         <div class="heading-elements">
                                                             <p class="text-muted"></p>
                                                         </div>
                                                     </div>
+                                                    <style>
+                                                        th {
+                                                            text-align: center;
+                                                            vertical-align: middle;
+                                                        }
+                                                        td {
+                                                            text-align: center;
+                                                            vertical-align: middle;
+                                                        }
+                                                    </style>
                                                     <div class="card-content">
                                                         <div class="table-responsive">
-                                                            <table class="table table-de mb-0">
+                                                            <table class="table table-de mb-0" >
                                                                 <thead>
+
                                                                 <tr>
                                                                     <th>CALLSIGN</th>
                                                                     <th>DEST</th>
                                                                     <th>SID</th>
                                                                     <th>TOT</th>
-                                                                    <th>CLRD</th>
+                                                                        <th>ROUTE VALIDITY</th>
+                                                                        <th>CLRD</th>
                                                                 </tr>
                                                                 </thead>
                                                                 <tbody>
-                                                                {{--@foreach($departure as $key => $data)--}}
-                                                                    {{--<tr class="bg-success bg-lighten-5">--}}
-                                                                        {{--<td>{{$data->CALLSIGN}}</td>--}}
-                                                                        {{--<td>{{$data->DEST}}</td>--}}
-                                                                        {{--<td>{{$data->SID}}</td>--}}
-                                                                        {{--<td>{{$data->TOT}}</td>--}}
-                                                                        {{--<td>{{$data->CLRD}}</td>--}}
-                                                                    {{--</tr>--}}
-                                                                    {{--@endforeach--}}
+                                                                @foreach($departures as $key => $data)
+                                                                    <tr class="bg-success bg-lighten-5">
+                                                                        <td>{{$data->callsign}}</td>
+                                                                        <td>{{$data->destination}}</td>
+                                                                        <td>{{$data->sid}}</td>
+                                                                        <td>{{$data->tot}}</td>
+                                                                        @if($callsign != false)
+                                                                            @if ($data->correctRoute)
+                                                                                <td><i class="la la-check-circle"></i></td>
+                                                                            @else
+                                                                                <td><i class="la la-times-circle"></i></td>
+                                                                            @endif
+
+                                                                            @if ($data->clrd)
+                                                                                <td><i class="la la-check-circle"></i></td>
+                                                                            @else
+                                                                                <td><i class="la la-times-circle"></i></td>
+                                                                            @endif
+                                                                        @endif
+                                                                    </tr>
+                                                                    @endforeach
                                                             </table>
                                                         </div>
                                                     </div>
@@ -206,7 +232,6 @@
 @stop
 
 @section('scripts')
-
     <script src="{{ asset("acdm_assets/vendors/js/forms/icheck/icheck.min.js")}}" type="text/javascript"></script>
 
 @stop

@@ -211,14 +211,15 @@
                                 {{--<img src="{{ asset('app-assets/images/portrait/small/avatar-s-19.png') }}" alt="avatar"><i></i></span>--}}
                             </a>
                             <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown" style="margin-top: -40px;">
-                    <span class="mr-1">VATSIM callsign:
-                            <span class="user-name text-bold-700">
-                                @foreach($controllers as $key => $data)
-                                <tr class="bg-success bg-lighten-5">
-                                <td>{{$data}}</td>
-                                </tr>
-                                @endforeach
-s                      </span>
+                                @if($callsign != false)
+                                    <span class="mr-1">VATSIM callsign:
+                                            <span class="user-name text-bold-700">
+                                                {{$callsign}}
+                                      </span>
+                                @else
+                                            <span class="mr-1">Not Logged On.
+                                      </span>
+                                @endif
                     </span>
 
 

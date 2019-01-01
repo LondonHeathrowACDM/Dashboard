@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Jobs\updateVATSIMData;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -26,6 +27,8 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+        // scheduled a queued job to run every 30 minutes
+        $schedule->job(new updateVATSIMData())->everyMinute();
     }
 
     /**

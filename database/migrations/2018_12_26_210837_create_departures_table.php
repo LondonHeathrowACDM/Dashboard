@@ -15,11 +15,15 @@ class CreateDeparturesTable extends Migration
     {
         Schema::create('departures', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('CALLSIGN');
-            $table->string('DEST',4);
-            $table->string('SID');
-            $table->string('TOT');
-            $table->boolean('CLRD');
+            $table->string('callsign');
+            $table->string('sid')->default('');
+            $table->string('tot')->default('');
+            $table->boolean('clrd')->default(false);
+            $table->string('destination');
+            $table->longText('route');
+            $table->integer('altitude');
+            $table->boolean('correctRoute')->default(false);
+            $table->timestamp('online_since');
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });

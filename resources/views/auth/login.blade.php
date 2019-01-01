@@ -55,15 +55,15 @@
                                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                                         {!! csrf_field() !!}
                                         <fieldset class="form-group floating-label-form-group">
-                                            @if ($errors->has('email'))
+                                            @if ($errors->has('cid'))
                                                 <span class="help-block">
-                                                    <strong>{{ $errors->first('email') }}</strong>
+                                                    <strong>{{ $errors->first('cid') }}</strong>
                                                 </span>
                                                 <br>
                                                 <br>
                                             @endif
-                                            <label for="user-name">Your Email</label>
-                                            <input type="text" class="form-control" id="user-name" name="email" value="{{ old('email') }}" placeholder="Your Username">
+                                            <label for="user-name">Enter CID</label>
+                                            <input type="text" class="form-control" id="user-name" name="cid" value="{{ old('cid') }}" placeholder="XXXXXXX">
                                         </fieldset>
                                         <fieldset class="form-group{{ $errors->has('password') ? ' has-error' : '' }} floating-label-form-group mb-1">
                                             @if ($errors->has('password'))
@@ -73,7 +73,7 @@
                                                 <br>
                                             @endif
                                             <label for="user-password">Enter Password</label>
-                                            <input type="password" class="form-control" id="user-password" name="password" placeholder="Enter Password">
+                                            <input type="password" class="form-control" id="user-password" name="password" placeholder="XXXXXXX">
                                         </fieldset>
                                         <div class="form-group row">
                                             <div class="col-md-6 col-12 text-center text-sm-left">
@@ -82,7 +82,7 @@
                                                     <label for="remember-me" > Remember Me</label>
                                                 </fieldset>
                                             </div>
-                                            <div class="col-md-6 col-12 float-sm-left text-center text-sm-right"><a href="{{ url('/password/reset') }}" class="card-link">Forgot Password?</a></div>
+                                            {{--<div class="col-md-6 col-12 float-sm-left text-center text-sm-right"><a href="{{ url('/password/reset') }}" class="card-link">Forgot Password?</a></div>--}}
                                         </div>
                                         <button type="submit" class="btn btn-outline-purple btn-block"><i class="ft-unlock"></i> Login</button>
                                     </form>

@@ -11,30 +11,62 @@ class DashboardController extends \App\Http\Controllers\Controller
 {
     public function getDashboard()
     {
-        $controllers = $this->getOnlineControllers()
-            ->filter(function ($value) {
-                return preg_match('/EGLL_/', $value['callsign']);
-            })->pluck('callsign')->toArray();
+        $callsign = $this->getCurrentCallsign(auth()->user()->cid);
+        if($callsign === null){
+            $callsign = "NOT LOGGED IN";
+        } else {
+            $callsign = $this->getCurrentCallsign(auth()->user()->cid);
 
-        $removeATIS = array_search('EGLL_ATIS', $controllers);
-        if($removeATIS !== FALSE){
-            unset($controllers[$removeATIS]);
+        }
+
+
+        $departures = Departures::all(['callsign', 'destination', 'sid', 'tot', 'clrd', 'online_since']);
+        $departures = Departures::orderBy('online_since', 'desc')->get();
+
+        return view('acdm.dashboard', ['callsign' => $callsign], ['departures' => $departures]);
+    }
+
+    /**
+     * @param int $cid
+     * @return string|null
+     */
+
+    private function checkPilotsRoute(string $jsonDirective) {
+        $str = file_get_contents($jsonDirective);
+        $json = json_decode($str, true);
+
+        foreach (Departure::pluck('route') as $obj) {
+
         }
 
 
 
-        dd($controllers); // pass $controllers collection to view and within the blade template have some conditional on $controllers->contains(auth()->cid)
+
     }
 
+    private function getCurrentCallsign(int $cid): ?string
+    {
+
+        return $this->getOnlineControllers()
+            ->filter(function ($value) use ($cid) {
+                return (int)$value['cid'] === $cid && !preg_match('/_ATIS/', $value['callsign']);
+            })->mapWithKeys(function ($item) {
+                return ['callsign' => $item['callsign']];
+            })->get('callsign');
+
+
+    }
+
+    /**
+     * @return mixed
+     */
     private function getOnlineControllers()
     {
         $vatsim = new VatsimData();
         $vatsim->loadData();
 
-        $controllers = Cache::remember('online-controllers', 15, function () use ($vatsim) {
-            return collect($vatsim->getControllers()->toArray());
+        return Cache::remember('online-controllers', 15, function () use ($vatsim) {
+            return collect($vatsim->getControllers());
         });
-
-        return $controllers;
     }
 }

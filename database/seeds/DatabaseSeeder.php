@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Http;
+use App\Departures;
 
 class DatabaseSeeder extends Seeder
 {
@@ -11,6 +13,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $this->call(VATSIMDepartureData::class);
         // $this->call(UsersTableSeeder::class);
     }
 }
