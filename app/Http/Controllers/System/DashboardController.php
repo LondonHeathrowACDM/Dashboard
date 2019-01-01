@@ -31,19 +31,6 @@ class DashboardController extends \App\Http\Controllers\Controller
      * @return string|null
      */
 
-    private function checkPilotsRoute(string $jsonDirective) {
-        $str = file_get_contents($jsonDirective);
-        $json = json_decode($str, true);
-
-        foreach (Departure::pluck('route') as $obj) {
-
-        }
-
-
-
-
-    }
-
     private function getCurrentCallsign(int $cid): ?string
     {
 
