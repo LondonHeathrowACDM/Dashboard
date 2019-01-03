@@ -1,19 +1,33 @@
 <?php
 
-namespace Tests\Feature;
+namespace App\Jobs;
 
-use App\Departures;
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Bus\Queueable;
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Foundation\Bus\Dispatchable;
 
-class ExampleTest extends TestCase
+class RouteValidation implements ShouldQueue
 {
+    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+
     /**
-     * A basic test example.
+     * Create a new job instance.
      *
      * @return void
      */
-    public function testBasicTest()
+    public function __construct()
+    {
+        //
+    }
+
+    /**
+     * Execute the job.
+     *
+     * @return void
+     */
+    public function handle()
     {
         $path = storage_path('app/public/json/routes.json');
         $str = file_get_contents($path);
@@ -39,7 +53,5 @@ class ExampleTest extends TestCase
             }
 
         }
-
     }
-
 }

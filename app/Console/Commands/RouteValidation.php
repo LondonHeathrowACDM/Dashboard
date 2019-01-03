@@ -1,19 +1,42 @@
 <?php
 
-namespace Tests\Feature;
+namespace App\Console\Commands;
 
 use App\Departures;
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Console\Command;
 
-class ExampleTest extends TestCase
+class RouteValidation extends Command
 {
     /**
-     * A basic test example.
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = 'VATSIM:RouteValidator';
+
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Validates VATSIM routes';
+
+    /**
+     * Create a new command instance.
      *
      * @return void
      */
-    public function testBasicTest()
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
+    /**
+     * Execute the console command.
+     *
+     * @return mixed
+     */
+    public function handle()
     {
         $path = storage_path('app/public/json/routes.json');
         $str = file_get_contents($path);
@@ -39,7 +62,6 @@ class ExampleTest extends TestCase
             }
 
         }
-
+    return null;
     }
-
 }

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Departures extends Model
 {
-    protected $fillable = ['callsign', 'destination','route','altitude'];
+    protected $fillable = ['callsign', 'destination', 'longitude', 'latitude','route','altitude'];
 
     public function setActiveAttribute($value)
     {

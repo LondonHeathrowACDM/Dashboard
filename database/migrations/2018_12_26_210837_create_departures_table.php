@@ -22,6 +22,8 @@ class CreateDeparturesTable extends Migration
             $table->string('destination');
             $table->longText('route');
             $table->integer('altitude');
+            $table->float('longitude')->default(null);
+            $table->float('latitude')->default(null);
             $table->boolean('correctRoute')->default(false);
             $table->timestamp('online_since');
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));

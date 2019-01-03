@@ -4,6 +4,7 @@ namespace App\Http\Controllers\System;
 
 use App\Departures;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Vatsimphp\VatsimData;
 
@@ -11,6 +12,8 @@ class DashboardController extends \App\Http\Controllers\Controller
 {
     public function getDashboard()
     {
+        Auth::check();
+
         $callsign = $this->getCurrentCallsign(auth()->user()->cid);
         if($callsign === null){
             $callsign = "NOT LOGGED IN";
