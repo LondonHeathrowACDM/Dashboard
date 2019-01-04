@@ -38,13 +38,12 @@ class UpdateVatsimData extends Command
      */
     public function handle()
     {
+        Departures::truncate();
+
         $jsonData = json_decode(file_get_contents('http://api.vateud.net/online/departures/egll.json'));
         foreach ($jsonData as $obj) {
-            $result = Departures::where('callsign')->get();
-            if (!$result and Departures::where('callsign', '!=', $obj->callsign)) {
-                Departures::where('callsign', '=', Departures::pluck('callsign'))->delete();
-            }
-            elseif ($obj->altitude < 100 and $obj->longitude > -0.5 and $obj->longitude < -0.41 and $obj->latitude < 51.48 and $obj->latitude > 51.45) {
+
+            if ($obj->altitude < 100 and $obj->longitude > -0.5 and $obj->longitude < -0.41 and $obj->latitude < 51.48 and $obj->latitude > 51.45) {
 
                 $callsignExists = Departures::where('callsign', '=', $obj->callsign)->first();
                 if ($callsignExists === null) {
@@ -59,9 +58,12 @@ class UpdateVatsimData extends Command
                     ));
                 }
 
-            } elseif ($obj->altitude > 100 or $obj->longitude < -0.5 or $obj->longitude > -0.41 or $obj->latitude > 51.48 or $obj->latitude < 51.45) {
+            }
+
+            elseif ($obj->altitude > 100 or $obj->longitude < -0.5 or $obj->longitude > -0.41 or $obj->latitude > 51.48 or $obj->latitude < 51.45) {
                 Departures::where('callsign', '=', $obj->callsign)->delete();
             }
+
 
 
         }

@@ -28,7 +28,10 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')
         //          ->hourly();
         // scheduled a queued job to run every 30 minutes
-        $schedule->job(new updateVATSIMData())->everyMinute();
+        $schedule->command('VATSIM:Download')
+            ->everyMinute();
+        $schedule->command('VATSIM:RouteValidator')
+            ->everyMinute();
     }
 
     /**
